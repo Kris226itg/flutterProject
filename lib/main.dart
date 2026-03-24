@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/first_page.dart';
 
 void main() {
   runApp( MyApp());
@@ -27,11 +28,18 @@ void userTapped() {
 
       
         body: Center(
-          child: (¨
-            
-
-
-          ),
+          child: ElevatedButton(
+          child: Text("go to 1st"),
+          
+          onPressed: (){
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+              builder: (context) => FirstPage()
+              )
+            );
+          }
+        ),
         )
               
             
