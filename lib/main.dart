@@ -1,52 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
+
+
 
 void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key});
+  const MyApp({super.key});
 
-
-  List challanges = ["push-ups", "mewing", "running"];
-
-void userTapped() {
- print("nigger");
-
-}
-
-
-
-@override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-
-      
-        body: Center(
-          child: (¨
-            
+      home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.yellow),
 
 
-          ),
-        )
-              
-            
-      ),
-    );  
-      
-    
-      
-
-        
-
-    
-      
+    );
   }
-
-
-
 }
