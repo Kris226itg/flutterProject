@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,11 +11,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   
 
-int deadniggers = 0;
+int coins = 0;
 
-void killnigger(int number){
+void getcoin(int number){
   setState(() {
-    deadniggers = deadniggers + number;
+    coins = coins + number;
   });
 
 }
@@ -32,7 +33,7 @@ void killnigger(int number){
 
       appBar: AppBar(
         backgroundColor: Colors.yellow[500],
-        title: Text("Kill niggers app"),
+        title: Text("Coin app"),
         centerTitle: true,
       ),
 
@@ -41,8 +42,10 @@ void killnigger(int number){
           mainAxisAlignment: MainAxisAlignment.center,
           children: [    
           
+
+
             Text(
-              "$deadniggers" + " dead niggers", 
+              "$coins" + " coins", 
               style: TextStyle(
                 fontStyle: FontStyle.italic,
                 fontSize: 20
@@ -51,11 +54,22 @@ void killnigger(int number){
 
 
             ElevatedButton(
-              onPressed: () => killnigger(1),
-              child: Text("kill a nigger")
+              onPressed: () => getcoin(coinsPerClick),
+              child: Text("get a coin")
             ),
 
-            
+
+
+            Text(
+              "Click strengh: " + "$coinsPerClick", 
+              style: TextStyle(
+                fontStyle: FontStyle.normal,
+                fontSize: 20
+              ),
+            ),
+
+
+
 
 
           ]
@@ -63,6 +77,11 @@ void killnigger(int number){
         
           
           ),
+      ),
+
+      floatingActionButton: ElevatedButton(
+        onPressed: () => Navigator.pushNamed(context, "/shop"),
+        child: Text("Shop"),
       ),
 
 
