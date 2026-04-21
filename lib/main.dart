@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
-import 'package:flutter_application_1/pages/shop_page.dart';
-
-
-int coinsPerClick = 1;
 
 void main() {
   runApp(const MyApp());
@@ -12,28 +8,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-
-
-
-      // initialRoute: '/',
-
-      routes: {
-        // "/": (context) => const HomePage(),
-        "/shop": (context) => ShopPage()
-      },
-
-
-
-
-
+      home: HomePage(),
 
     );
   }
