@@ -11,6 +11,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+final _controller = TextEditingController();
+
+
+
+
   List tasks = [
     ["study chemistry", false],
     ["study dfsdfsdfsdf", false]
@@ -24,12 +29,35 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
+void saveNewTask(){
+  setState(() {
+    tasks.add([_controller.text, false]);
+    _controller.clear();
+  });
+
+  Navigator.of(context).pop();
+}
+
+
   void createNewTask() {
     showDialog(context: context, builder: (context){
-      return DialogBox();
+      return DialogBox(
+        controller: _controller,
+        onSave: saveNewTask,
+        onCancel: () => Navigator.of(context).pop(),
+      );
     });
   }
   
+
+void deleteTask(int index){
+  setState(() {
+    tasks.removeAt(index);  
+  });
+  
+}
+
 
 
   @override
@@ -42,7 +70,12 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, index) {
-          return ToDoTile(taskName: tasks[index][0], isFinished: tasks[index][1], onChanged: (value) => checkboxChaged(index));
+          return ToDoTile(
+            taskName: tasks[index][0],
+            isFinished: tasks[index][1], 
+            onChanged: (value) => checkboxChaged(index),
+            deleteFunction: (context) => deleteTask(index),
+            );
         },
       ),
 
